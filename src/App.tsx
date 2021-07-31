@@ -1,8 +1,9 @@
 import './styles.css';
 import IMAGE from './eat-sleep-code.jpg';
 import REACTLOGO from './react-original.svg';
-import ReactLogo from './ReactLogo';
+// import ReactLogo from './ReactLogo';
 import ClickCounter from './ClickCounter';
+
 const App = () => (
   <div>
     <h1>React TypeScript Bootstrap {process.env.NODE_ENV}</h1>
