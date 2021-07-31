@@ -4,12 +4,11 @@
   "main": "index.js",
   "author": "Suneet Misra <hello@suneet.codes>",
   "license": "MIT",
-  "engines": {
-    "node": ">=8.10.0"
-  },
   "scripts": {
     "start": "webpack serve --config webpack/webpack.config.js --env env=dev",
-    "build": "webpack --config webpack/webpack.config.js --env env=prod"
+    "build": "webpack --config webpack/webpack.config.js --env env=prod",
+    "lint": "yarn eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
+    "format": "yarn prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
   },
   "dependencies": {
     "react": "^17.0.2",
@@ -52,64 +51,43 @@
       "es2021": true,
       "node": true
     },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 2021,
+      "sourceType": "module"
+    },
     "settings": {
       "react": {
         "version": "detect"
-      },
-      "import/resolver": {
-        "typescript": {}
       }
     },
     "extends": [
       "plugin:react/recommended",
-      "plugin:node/recommended",
-      "airbnb",
+      "plugin:react-hooks/recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:import/errors",
+      "plugin:import/warnings",
+      "plugin:import/typescript",
+      "plugin:jsx-a11y/recommended",
       "prettier"
     ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-      "ecmaFeatures": {
-        "jsx": true
-      },
-      "ecmaVersion": 12,
-      "sourceType": "module"
-    },
-    "plugins": [
-      "react",
-      "@typescript-eslint"
-    ],
     "rules": {
-      "no-use-before-define": "off",
-      "@typescript-eslint/no-use-before-define": [
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": [
         "error"
       ],
-      "react/jsx-filename-extension": [
-        "warn",
-        {
-          "extensions": [
-            ".tsx"
-          ]
-        }
-      ],
-      "import/extensions": [
-        "error",
-        "ignorePackages",
-        {
-          "ts": "never",
-          "tsx": "never",
-          "js": "never"
-        }
-      ],
-      "node/no-unsupported-features/es-syntax": [
-        "off"
-      ],
+      "@typescript-eslint/no-var-requires": "off",
       "react/prop-types": "off",
+      "react/jsx-uses-react": "off",
       "react/react-in-jsx-scope": "off",
-      "node/global-require": "off",
-      "node/no-missing-import": "off"
+      "@typescript-eslint/explicit-module-boundary-types": "off"
     }
   },
   "prettier": {
+    "semi": false,
+    "trailingComma": "es5",
+    "jsxSingleQuote": false,
+    "printWidth": 80,
     "tabWidth": 2,
     "singleQuote": true,
     "endOfLine": "auto"
