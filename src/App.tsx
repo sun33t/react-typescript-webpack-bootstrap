@@ -1,8 +1,8 @@
-import './styles.css';
-import IMAGE from './eat-sleep-code.jpg';
-import REACTLOGO from './react-original.svg';
+import './styles.css'
+import IMAGE from './eat-sleep-code.jpg'
+import REACTLOGO from './react-original.svg'
 // import ReactLogo from './ReactLogo';
-import ClickCounter from './ClickCounter';
+import ClickCounter from './ClickCounter'
 
 const App = () => (
   <div>
@@ -12,6 +12,6 @@ const App = () => (
     {/* <ReactLogo /> */}
     <ClickCounter />
   </div>
-);
+)
 
-export default App;
+export default App
